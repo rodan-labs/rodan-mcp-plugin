@@ -16,7 +16,7 @@ server is open.
 | 3 | Dynamic client registration accepts each assistant's redirect address: Claude, ChatGPT, Cursor and Google's `googleusercontent.com` addresses. Try each one on the live server | You |
 | 4 | Every tool has a `title` and explicit `readOnlyHint`, `destructiveHint` and `openWorldHint`. The four tools that change the workspace have `destructiveHint` true. Names are 64 characters or fewer and unique. Descriptions say what the tool does and do not tell the assistant how to behave | You |
 | 5 | The tool names match the skill and the test cases: `search`, `fetch` and `omniagraph_<tool>`. If any name differs on the live server, change `shared/skills`, `plugins/chatgpt/plugin.json` and `listing/openai.md`, then run `scripts/sync.sh` and `scripts/check.sh` | You |
-| 6 | The privacy policy and terms of service are public at `https://platform.rodananalytics.com/privacy` and `https://platform.rodananalytics.com/terms`. Drafts are in the legal notes folder, outside this repository | You |
+| 6 | The privacy policy and terms of service are public at `https://rodan.io/legal-privacy/privacy-policy` and `https://rodan.io/legal-privacy/terms-of-service`. Drafts are in the legal notes folder, outside this repository | You |
 | 7 | The GitHub repository `rodan-labs/rodan-mcp-plugin` exists, is public, and has this branch pushed as `main`. No remote exists yet | You |
 | 8 | A reviewer account and a seeded demo workspace exist, with findings, a brief and a monitor, an OmniaGraph user that matches the account, and no two-factor step. The account's password is in the password manager and nowhere in this repository | You |
 | 9 | Each prompt in `listing/openai.md` has been run end to end with the reviewer account and gives the expected result | You |

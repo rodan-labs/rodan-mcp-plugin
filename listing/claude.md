@@ -70,7 +70,7 @@ Pick the closest of these descriptions from the list the portal shows:
 | Field | Enter |
 |---|---|
 | Documentation URL | `https://github.com/rodan-labs/rodan-mcp-plugin#readme` once the repository is public, or a page on `rodananalytics.com` if you publish one |
-| Privacy policy URL | `https://platform.rodananalytics.com/privacy` |
+| Privacy policy URL | `https://rodan.io/legal-privacy/privacy-policy` |
 | Support contact | `support@rodananalytics.com` |
 | Icon | `assets/rodan-icon-512.png` |
 | URL slug | `rodan`. It is permanent once published |

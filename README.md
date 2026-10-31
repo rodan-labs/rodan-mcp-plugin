@@ -84,7 +84,7 @@ This repository holds configuration files and one skill. It has no code that run
 machine and it collects nothing.
 
 When you use Rodan through the server, we handle your data as follows. Our
-[privacy policy](https://platform.rodananalytics.com/privacy) has the full detail.
+[privacy policy](https://rodan.io/legal-privacy/privacy-policy) has the full detail.
 
 - **What Rodan stores:** your email address and name, your client name and logo, which apps
   your account has, and your connection tokens, which are encrypted.
@@ -98,7 +98,7 @@ When you use Rodan through the server, we handle your data as follows. Our
   [platform.rodananalytics.com/connections](https://platform.rodananalytics.com/connections).
 - **We do not use your content to train AI models.**
 
-Our [terms of service](https://platform.rodananalytics.com/terms) apply to your use of Rodan.
+Our [terms of service](https://rodan.io/legal-privacy/terms-of-service) apply to your use of Rodan.
 
 ## What is in this repository
 

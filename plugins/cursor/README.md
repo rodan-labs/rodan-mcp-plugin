@@ -30,7 +30,7 @@ A Rodan account with access to OmniaGraph. Rodan is for business use.
 Rodan stores your email address and name, your client name and logo, which apps your account
 has, and your connection tokens, which are encrypted. Results from an app pass through the
 Rodan server to your assistant and are not stored by it. Read the
-[privacy policy](https://platform.rodananalytics.com/privacy) and the
+[privacy policy](https://rodan.io/legal-privacy/privacy-policy) and the
 [OmniaGraph privacy policy](https://omniagraph.com/privacy). We do not use your content to
 train AI models.
 

@@ -115,8 +115,8 @@ you see how it lists the locales. The checker reads the en-GB blocks above.
 | Field | Enter |
 |---|---|
 | Icon | `assets/rodan-icon-512.png`. JPG or PNG, up to 1 MB, 512 × 512 px. The file is 512 × 512 px and well under 1 MB |
-| Terms of service URL | `https://platform.rodananalytics.com/terms` |
-| Policy URL | `https://platform.rodananalytics.com/privacy` |
+| Terms of service URL | `https://rodan.io/legal-privacy/terms-of-service` |
+| Policy URL | `https://rodan.io/legal-privacy/privacy-policy` |
 | Website URL | `https://rodananalytics.com` |
 
 ## Step 3: MCP endpoint and domain verification

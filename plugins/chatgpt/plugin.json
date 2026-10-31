@@ -24,8 +24,8 @@
         "capabilities": ["Read", "Write"],
         "websiteURL": "https://rodananalytics.com",
         "supportURL": "https://rodan.io/contact",
-        "privacyPolicyURL": "https://platform.rodananalytics.com/privacy",
-        "termsOfServiceURL": "https://platform.rodananalytics.com/terms",
+        "privacyPolicyURL": "https://rodan.io/legal-privacy/privacy-policy",
+        "termsOfServiceURL": "https://rodan.io/legal-privacy/terms-of-service",
         "defaultPrompt": [
           "Use Rodan to show what changed in my monitors this week.",
           "Use Rodan to find the findings with the strongest evidence on a company.",

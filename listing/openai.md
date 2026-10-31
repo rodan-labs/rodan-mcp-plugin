@@ -70,8 +70,8 @@ Rodan Analytics Limited
 | Capabilities | `Read`, `Write` |
 | Website URL | `https://rodananalytics.com` |
 | Support URL | `https://rodan.io/contact` |
-| Privacy policy URL | `https://platform.rodananalytics.com/privacy` |
-| Terms of service URL | `https://platform.rodananalytics.com/terms` |
+| Privacy policy URL | `https://rodan.io/legal-privacy/privacy-policy` |
+| Terms of service URL | `https://rodan.io/legal-privacy/terms-of-service` |
 | Brand colour | `#111138` (Rodan ink navy). It has far more than 2:1 contrast against white |
 | Brand colour, dark | `#7E7EFC` (Rodan accent violet). It is checked against `#212121` |
 | `logo` | `./assets/rodan-icon-512.png`, 512 × 512 px, PNG |
