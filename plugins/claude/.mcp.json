@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rodan": {
+      "type": "http",
+      "url": "https://mcp.rodananalytics.com/mcp"
+    }
+  }
+}

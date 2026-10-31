@@ -1,0 +1,14 @@
+{
+  "name": "rodan",
+  "owner": {
+    "name": "Rodan Analytics Limited",
+    "email": "support@rodananalytics.com"
+  },
+  "plugins": [
+    {
+      "name": "rodan",
+      "source": "./plugins/claude",
+      "description": "Cited findings on the markets, companies and regulators you follow, each scored by OmniaScore."
+    }
+  ]
+}

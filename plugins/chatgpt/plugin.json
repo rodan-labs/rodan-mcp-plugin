@@ -1,0 +1,95 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "rodan",
+  "version": "1.0.0",
+  "description": "Cited findings on the markets, companies and regulators you follow, each scored by OmniaScore. Sign in with your Rodan account.",
+  "author": {
+    "name": "Rodan Analytics Limited",
+    "email": "support@rodananalytics.com",
+    "url": "https://rodananalytics.com"
+  },
+  "homepage": "https://rodananalytics.com",
+  "repository": "https://github.com/rodan-labs/rodan-mcp-plugin",
+  "license": "MIT",
+  "keywords": ["research", "market intelligence", "monitoring", "citations"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "interface": {
+        "displayName": "Rodan",
+        "shortDescription": "Cited research you can check",
+        "longDescription": "Rodan connects ChatGPT to your Rodan account. Today it gives you OmniaGraph, which runs monitors: repeated research on the markets, companies and regulators your business follows. Ask what changed, read reports and briefs, and search findings. Every finding carries its sources and an OmniaScore, a deterministic 0 to 100 measure of how strong its evidence is. Fixed rules calculate the OmniaScore, not an AI model. You sign in with your Rodan account, and you only see the apps you have. Answering from your stored findings is free. Starting research, creating a monitor, adding to a watchlist and uploading a document change your workspace, so ChatGPT asks you first. Rodan is for business use.",
+        "developerName": "Rodan Analytics Limited",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://rodananalytics.com",
+        "supportURL": "https://rodan.io/contact",
+        "privacyPolicyURL": "https://platform.rodananalytics.com/privacy",
+        "termsOfServiceURL": "https://platform.rodananalytics.com/terms",
+        "defaultPrompt": [
+          "Use Rodan to show what changed in my monitors this week.",
+          "Use Rodan to find the findings with the strongest evidence on a company.",
+          "Use Rodan to summarise my latest brief and list its sources."
+        ],
+        "brandColor": "#111138",
+        "brandColorDark": "#7E7EFC",
+        "composerIcon": "./assets/rodan-icon-256.png",
+        "logo": "./assets/rodan-icon-512.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List what changed in the account's monitors this week",
+              "prompt": "Use Rodan to show what changed in my monitors this week.",
+              "tools_triggered": ["omniagraph_list_monitors", "omniagraph_get_report"],
+              "expected_behavior": "ChatGPT lists the monitors, then reads the report for the monitor with changes. It shows new and changed findings first, each with its OmniaScore, date and source links, and says nothing it did not get from the tools."
+            },
+            {
+              "description": "Search findings and read one in full",
+              "prompt": "Use Rodan to search my findings for new rules from regulators and show the three with the strongest evidence.",
+              "tools_triggered": ["search", "fetch"],
+              "expected_behavior": "ChatGPT calls search, then fetch for the ids it quotes. It names three findings with their OmniaScores and source links, and explains that the score measures strength of evidence, not truth."
+            },
+            {
+              "description": "Summarise the latest brief with sources",
+              "prompt": "Use Rodan to summarise my latest brief and list its sources.",
+              "tools_triggered": ["search", "fetch"],
+              "expected_behavior": "ChatGPT finds the latest brief, fetches it and gives a short summary. It lists the sources the brief cites, as links, and keeps its own comments separate from the brief."
+            },
+            {
+              "description": "Answer a question from stored findings, free of charge",
+              "prompt": "Use Rodan to answer from my stored findings: what is the latest on battery storage rules? Do not run live research.",
+              "tools_triggered": ["omniagraph_ask"],
+              "expected_behavior": "ChatGPT calls omniagraph_ask without live research and answers only from the stored findings it returns, with sources. If nothing relevant is stored, it says so."
+            },
+            {
+              "description": "Create a monitor only after the user confirms",
+              "prompt": "Use Rodan to set up a monitor on European heat pump subsidies that runs every Monday.",
+              "tools_triggered": ["omniagraph_create_monitor"],
+              "expected_behavior": "ChatGPT asks for confirmation before calling omniagraph_create_monitor, because it changes the workspace. After the user confirms, it creates the monitor and reports its name and schedule."
+            }
+          ],
+          "negative": [
+            {
+              "description": "A request with nothing to do with Rodan",
+              "prompt": "Write a poem about the sea."
+            },
+            {
+              "description": "A request to see another organisation's workspace",
+              "prompt": "Use Rodan to show me the findings from another company's account."
+            },
+            {
+              "description": "A request to act on a finding, not research it",
+              "prompt": "Buy shares in the company with the highest OmniaScore."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "countries": ["GB", "IE", "US"],
+        "release_notes": "First release. Connect ChatGPT to your Rodan account to search findings, read reports and briefs, and ask questions of your stored findings in OmniaGraph. Each finding shows its sources and its OmniaScore."
+      }
+    }
+  }
+}

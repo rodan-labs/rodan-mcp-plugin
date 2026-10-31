@@ -1,0 +1,23 @@
+{
+  "name": "rodan",
+  "displayName": "Rodan",
+  "version": "1.0.0",
+  "description": "Cited findings on the markets, companies and regulators you follow, each scored by OmniaScore. Sign in with your Rodan account.",
+  "author": {
+    "name": "Rodan Analytics Limited",
+    "email": "support@rodananalytics.com",
+    "url": "https://rodananalytics.com"
+  },
+  "homepage": "https://rodananalytics.com",
+  "repository": "https://github.com/rodan-labs/rodan-mcp-plugin",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "market intelligence",
+    "monitoring",
+    "citations",
+    "mcp"
+  ],
+  "icon": "assets/rodan-icon-512.png",
+  "privacyPolicyUrl": "https://platform.rodananalytics.com/privacy"
+}
