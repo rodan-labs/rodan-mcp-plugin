@@ -23,9 +23,16 @@ Every field below with a limit in its heading is checked by `scripts/check.sh`.
 
 ### Step 2: Tools
 
-Nothing to type. The portal reads the tools from the server. Before you submit, check that
-every tool has a `title` and a `readOnlyHint` or `destructiveHint`, and that each tool name
-is 64 characters or fewer. The tools are `search`, `fetch` and `omniagraph_<tool>`.
+Nothing to type. The portal reads the tools from the server. Sign in as an OmniaGraph
+member or owner, or the portal sees only the eleven tools that read. It should show 16 tools:
+
+| Tools | Annotation |
+|---|---|
+| `search`, `fetch`, `omniagraph_list_monitors`, `omniagraph_get_report`, `omniagraph_ask`, `omniagraph_get_run`, `omniagraph_company_intelligence`, `omniagraph_get_dashboards`, `omniagraph_get_quarterly_brief`, `omniagraph_page_watch_entries`, `omniagraph_get_enrichment` | `readOnlyHint` true, `destructiveHint` false |
+| `omniagraph_start_research`, `omniagraph_create_monitor`, `omniagraph_add_to_watchlist`, `omniagraph_upload_document`, `omniagraph_enrich_companies` | `readOnlyHint` false, `destructiveHint` true |
+
+Before you submit, check that every tool has a `title` and both hints, and that each tool name
+is 64 characters or fewer.
 
 ### Step 3: Listing
 
@@ -48,7 +55,9 @@ Rodan connects Claude to your Rodan account. Today it gives you OmniaGraph, whic
 
 Each run collects public sources and any private documents you add, extracts cited findings and scores each one with OmniaScore. OmniaScore is a number from 0 to 100 that measures how strong the evidence for a finding is. Fixed rules calculate it, not an AI model. It measures the evidence, not whether a finding is true.
 
-Ask Claude what changed this week, search findings, briefs and private documents, read a finding with its sources, or ask a question of your stored findings. Answering from stored findings is free. Starting research, creating a monitor, adding to a watchlist and uploading a document change your workspace, so Claude asks you first. Live research uses credits.
+Ask Claude what changed this week, search findings, briefs and private documents, read a finding with its sources, or ask a question of your stored findings. Claude can also read your workspace's company map and cited company profiles, dashboard figures with their sources, quarterly briefs with their data gaps, and dated entries from the university and incubator pages your workspace watches.
+
+Eleven tools only read. Five change your workspace, so Claude asks you first: starting research, creating a monitor, adding to a watchlist, uploading a document and enriching a list of companies. Answering from stored findings is free. Live answers and research runs use workspace credits. Enrichment researches each company on the web.
 
 You sign in with your Rodan account and see only the apps your account has. Each app keeps its own users and roles, so you can do only what your role in the app allows, and you need an OmniaGraph account to see findings.
 
@@ -80,13 +89,13 @@ Pick the closest of these descriptions from the list the portal shows:
 #### Primary use cases (max 600 characters)
 
 ```text
-Catch up on what changed in the markets, companies and regulators you follow. Check the evidence behind a finding and open its sources. Read the latest brief, with its sources, before a meeting. Search findings and private documents. Set up a monitor or add to a watchlist by chat, after you approve the change.
+Catch up on what changed in the markets, companies and regulators you follow. Check the evidence behind a finding and open its sources. Read the latest brief, with its sources, before a meeting. Search findings and private documents. Look up a company's cited profile, a dashboard figure or a quarterly brief. Set up a monitor, add to a watchlist or enrich a list of companies by chat, after you approve the change.
 ```
 
 | Question | Answer |
 |---|---|
 | What users need before they connect | A Rodan account with access to OmniaGraph. Rodan is for business use. Reviewers: a ready-made account is in the reviewer instructions |
-| Does the connector read data, write data or both | Both. Six tools only read. Four tools change the workspace: starting research, creating a monitor, adding to a watchlist and uploading a document |
+| Does the connector read data, write data or both | Both. Eleven tools only read. Five tools change the workspace: starting research, creating a monitor, adding to a watchlist, uploading a document and starting a company enrichment job |
 
 ### Step 5: Company
 
@@ -148,7 +157,7 @@ usage allowance inside OmniaGraph, not a payment made through the connector.
 #### Acknowledgement 4: AI media generation
 
 The connector does not generate images, video or audio with AI models. For Rodan: true. It
-returns text findings, briefs and links to sources.
+returns text: findings, briefs, company profiles, dashboard figures and links to sources.
 
 #### Acknowledgement 5: Prompt injection
 

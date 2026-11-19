@@ -53,7 +53,8 @@ Find out what changed in the markets, companies and regulators you follow
 Search findings, briefs and private documents, with the sources behind each one
 Check how strong the evidence is for a finding with its OmniaScore
 Ask questions of your stored findings and get answers with sources
-Start research and create monitors, after you approve each change
+Read cited company profiles, dashboard figures and quarterly briefs from your workspace
+Start research, create monitors and enrich companies, after you approve each change
 ```
 
 ### Example prompts (en-GB)
@@ -62,7 +63,7 @@ Start research and create monitors, after you approve each change
 @Rodan what changed in my markets this week?
 @Rodan show me the findings on a company with the strongest evidence
 @Rodan summarise my latest brief and list its sources
-Ask Rodan if my stored findings cover new rules on battery storage
+Ask Rodan if my stored findings cover new rules on where equipment may originate
 ```
 
 ### Example prompts (en-US)
@@ -71,7 +72,7 @@ Ask Rodan if my stored findings cover new rules on battery storage
 @Rodan what changed in my markets this week?
 @Rodan show me the findings on a company with the strongest evidence
 @Rodan summarize my latest brief and list its sources
-Ask Rodan if my stored findings cover new rules on battery storage
+Ask Rodan if my stored findings cover new rules on where equipment may originate
 ```
 
 ### Locale tags
@@ -94,7 +95,8 @@ where spelling differs.
 <en-GB>Search findings, briefs and private documents, with the sources behind each one</en-GB><en-US>Search findings, briefs and private documents, with the sources behind each one</en-US>
 <en-GB>Check how strong the evidence is for a finding with its OmniaScore</en-GB><en-US>Check how strong the evidence is for a finding with its OmniaScore</en-US>
 <en-GB>Ask questions of your stored findings and get answers with sources</en-GB><en-US>Ask questions of your stored findings and get answers with sources</en-US>
-<en-GB>Start research and create monitors, after you approve each change</en-GB><en-US>Start research and create monitors, after you approve each change</en-US>
+<en-GB>Read cited company profiles, dashboard figures and quarterly briefs from your workspace</en-GB><en-US>Read cited company profiles, dashboard figures and quarterly briefs from your workspace</en-US>
+<en-GB>Start research, create monitors and enrich companies, after you approve each change</en-GB><en-US>Start research, create monitors and enrich companies, after you approve each change</en-US>
 ```
 
 #### Example prompts, tagged (paste into Example prompts)
@@ -103,7 +105,7 @@ where spelling differs.
 <en-GB>@Rodan what changed in my markets this week?</en-GB><en-US>@Rodan what changed in my markets this week?</en-US>
 <en-GB>@Rodan show me the findings on a company with the strongest evidence</en-GB><en-US>@Rodan show me the findings on a company with the strongest evidence</en-US>
 <en-GB>@Rodan summarise my latest brief and list its sources</en-GB><en-US>@Rodan summarize my latest brief and list its sources</en-US>
-<en-GB>Ask Rodan if my stored findings cover new rules on battery storage</en-GB><en-US>Ask Rodan if my stored findings cover new rules on battery storage</en-US>
+<en-GB>Ask Rodan if my stored findings cover new rules on where equipment may originate</en-GB><en-US>Ask Rodan if my stored findings cover new rules on where equipment may originate</en-US>
 ```
 
 The documentation does not show how a multi-entry field takes two locales. If Connected Console
@@ -150,11 +152,11 @@ Google needs seeded data and no two-factor step.
 
 | Setting | Enter |
 |---|---|
-| Sync tools | Sign in with a developer account that can reach every tool. Tools it cannot reach do not sync |
+| Sync tools | Sign in with a developer account that can reach every tool: an OmniaGraph member or owner. A viewer reaches only the eleven tools that read, and tools it cannot reach do not sync. Expect 16 tools |
 | Countries and regions | United Kingdom and United States. Your decision to change |
 | Languages | English |
 | Products | Gemini app and Search, as the console offers |
-| User confirmation | Leave on for the four tools that change the workspace. The console selects it when a tool's annotations set `destructiveHint` to true |
+| User confirmation | Leave on for the five tools that change the workspace: `omniagraph_start_research`, `omniagraph_create_monitor`, `omniagraph_add_to_watchlist`, `omniagraph_upload_document` and `omniagraph_enrich_companies`. The console selects it when a tool's annotations set `destructiveHint` to true, and the Rodan server sets it on all five |
 | Additional context (locale, location) | Request none. Rodan needs none, and over-asking can fail review |
 
 ## Step 8 and 9: Test and review

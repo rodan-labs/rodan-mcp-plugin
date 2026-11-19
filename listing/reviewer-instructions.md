@@ -42,17 +42,24 @@ The account reaches only the demo workspace. It holds sample data, so you can ru
 | Try this | What you should see |
 |---|---|
 | "What changed in my monitors this week?" | The monitors listed, then new and changed findings, each with an OmniaScore, a date and source links |
-| "Search my findings for new rules from regulators" | Search results, then the findings read in full, with sources |
+| "Search my findings for new rules from regulators and show the ones with the strongest evidence first" | Search results, then the findings read in full, with sources |
 | "Summarise my latest brief and list its sources" | A short summary and the sources as links |
-| "What is the latest on battery storage rules? Do not run live research." | An answer from stored findings only, with sources |
+| "What is the latest on rules for where equipment may originate? Do not run live research." | An answer from stored findings only, with sources |
 | "Set up a monitor on European heat pump subsidies that runs every Monday" | A request to confirm first, then a new monitor |
+| "Enrich Raspberry Pi Holdings, website raspberrypi.com, with the standard company profile" | A request to confirm first, then a job id. Reading the job shows its progress, then each field with a source or marked unknown |
 
-The last row changes the demo workspace. It is safe to repeat. {{DEMO_RESET_NOTE}}
+The last two rows change the demo workspace and run live research. They are safe to repeat.
+{{DEMO_RESET_NOTE}}
 
 ## Things that look unusual but are expected
 
 - Rodan shows only the tools for apps the account has connected. If OmniaGraph is not
-  connected, you will see no OmniaGraph tools.
+  connected, you will see no OmniaGraph tools. With OmniaGraph connected, the account sees 16
+  tools: eleven that read and five that change the workspace.
+- The demo workspace has no dashboards, quarterly briefs or page watches, so
+  `omniagraph_get_dashboards`, `omniagraph_get_quarterly_brief` and
+  `omniagraph_page_watch_entries` return an empty list. Private documents are turned off in it,
+  so `omniagraph_upload_document` returns a message that they are not enabled.
 - Calls that use credits are limited per minute and per day. If a call is refused, the
   message says when to try again.
 - Results go to the assistant you are testing, and Rodan does not store them.

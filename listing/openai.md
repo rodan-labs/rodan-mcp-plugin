@@ -55,7 +55,7 @@ Cited research you can check
 #### Long description (max 4,000 characters)
 
 ```text
-Rodan connects ChatGPT to your Rodan account. Today it gives you OmniaGraph, which runs monitors: repeated research on the markets, companies and regulators your business follows. Ask what changed, read reports and briefs, and search findings. Every finding carries its sources and an OmniaScore, a deterministic 0 to 100 measure of how strong its evidence is. Fixed rules calculate the OmniaScore, not an AI model. You sign in with your Rodan account, and you only see the apps you have. Answering from your stored findings is free. Starting research, creating a monitor, adding to a watchlist and uploading a document change your workspace, so ChatGPT asks you first. Rodan is for business use.
+Rodan connects ChatGPT to your Rodan account. Today it gives you OmniaGraph, which runs monitors: repeated research on the markets, companies and regulators your business follows. Ask what changed, read reports and briefs, and search findings. You can also read your workspace's company map and cited company profiles, dashboard figures, quarterly briefs and dated entries from the university and incubator pages it watches. Every finding carries its sources and an OmniaScore, a deterministic 0 to 100 measure of how strong its evidence is. Fixed rules calculate the OmniaScore, not an AI model. You sign in with your Rodan account, and you only see the apps you have. Answering from your stored findings is free. Starting research, creating a monitor, adding to a watchlist, uploading a document and enriching a list of companies change your workspace, so ChatGPT asks you first. Live answers and research runs use workspace credits. Rodan is for business use.
 ```
 
 #### Developer name (max 80 characters)
@@ -109,14 +109,22 @@ Run each one in ChatGPT with the reviewer account before you submit. These are t
 | # | Description | Prompt | Tools | Expected behaviour |
 |---|---|---|---|---|
 | 1 | List what changed in the account's monitors this week | Use Rodan to show what changed in my monitors this week. | `omniagraph_list_monitors`, `omniagraph_get_report` | ChatGPT lists the monitors, then reads the report for the monitor with changes. It shows new and changed findings first, each with its OmniaScore, date and source links, and says nothing it did not get from the tools. |
-| 2 | Search findings and read one in full | Use Rodan to search my findings for new rules from regulators and show the three with the strongest evidence. | `search`, `fetch` | ChatGPT calls search, then fetch for the ids it quotes. It names three findings with their OmniaScores and source links, and explains that the score measures strength of evidence, not truth. |
-| 3 | Summarise the latest brief with sources | Use Rodan to summarise my latest brief and list its sources. | `search`, `fetch` | ChatGPT finds the latest brief, fetches it and gives a short summary. It lists the sources the brief cites, as links, and keeps its own comments separate from the brief. |
-| 4 | Answer a question from stored findings, free of charge | Use Rodan to answer from my stored findings: what is the latest on battery storage rules? Do not run live research. | `omniagraph_ask` | ChatGPT calls omniagraph_ask without live research and answers only from the stored findings it returns, with sources. If nothing relevant is stored, it says so. |
+| 2 | Search findings and read one in full | Use Rodan to search my findings for new rules from regulators and show the ones with the strongest evidence first. | `search`, `fetch` | ChatGPT calls search, then fetch for the ids it quotes. It names the findings it found, strongest evidence first, with their OmniaScores and source links, and explains that the score measures strength of evidence, not truth. |
+| 3 | Enrich a company only after the user confirms, then read its cited fields | Use Rodan to enrich Raspberry Pi Holdings, website raspberrypi.com, with the standard company profile. | `omniagraph_enrich_companies`, `omniagraph_get_enrichment` | ChatGPT asks for confirmation before calling omniagraph_enrich_companies, because it starts a job that researches the company on the web. After the user confirms, it starts the job and calls omniagraph_get_enrichment. It reports each field with its source, or says that a field is unknown or that the job is still running. |
+| 4 | Answer a question from stored findings, free of charge | Use Rodan to answer from my stored findings: what is the latest on rules for where equipment may originate? Do not run live research. | `omniagraph_ask` | ChatGPT calls omniagraph_ask without live research and answers only from the stored findings it returns, with sources. If nothing relevant is stored, it says so. |
 | 5 | Create a monitor only after the user confirms | Use Rodan to set up a monitor on European heat pump subsidies that runs every Monday. | `omniagraph_create_monitor` | ChatGPT asks for confirmation before calling omniagraph_create_monitor, because it changes the workspace. After the user confirms, it creates the monitor and reports its name and schedule. |
 
-Before you submit, check that the demo workspace holds findings about regulators and battery
-storage, and at least one brief. If it does not, change the prompts in `plugin.json` and in
-this table to match what it holds, then run `scripts/check.sh`.
+Prompts 2 and 4 are written for the demo workspace. It holds a market monitor whose findings
+include a regulator's rule on where subsidised equipment may originate, a company monitor and
+their briefs. Prompt 3 runs live web research on a public company, so it does not depend on
+the demo data, and the job can take a few minutes. If the demo workspace changes, change the
+prompts in `plugin.json` and in this table to match what it holds, then run `scripts/check.sh`.
+
+The demo workspace has no dashboards, quarterly briefs or page watches, and private documents
+are turned off in it. So no test case uses `omniagraph_get_dashboards`,
+`omniagraph_get_quarterly_brief`, `omniagraph_page_watch_entries` or
+`omniagraph_upload_document`. A reviewer who calls them sees an empty list or a message that
+private documents are not enabled.
 
 ## Negative test cases
 
@@ -134,7 +142,7 @@ requires no expected-behaviour field for them. The third column is for you to ch
 #### Release notes for version 1.0.0 (max 4,000 characters)
 
 ```text
-First release. Connect ChatGPT to your Rodan account to search findings, read reports and briefs, and ask questions of your stored findings in OmniaGraph. Each finding shows its sources and its OmniaScore.
+First release. Connect ChatGPT to your Rodan account to search findings, read reports and briefs, and ask questions of your stored findings in OmniaGraph. You can also read company profiles, dashboard figures and quarterly briefs, and, after you approve, start research, create monitors and enrich companies. Each finding shows its sources and its OmniaScore.
 ```
 
 The documentation gives no limit for release notes, so this heading uses the same limit as the

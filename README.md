@@ -23,8 +23,10 @@ Through your assistant you can:
 - ask what changed in a monitor this week
 - search findings, briefs and private documents, and read any of them in full
 - ask a question of your stored findings
-- start research, create a monitor, add to a watchlist and upload a document, after you
-  approve each one
+- read your workspace's company map and cited company profiles, dashboard figures, quarterly
+  briefs and dated entries from the university and incubator pages it watches
+- start research, create a monitor, add to a watchlist, upload a document and enrich a list of
+  companies, after you approve each one
 
 ## Requirements
 
@@ -65,18 +67,28 @@ tool result tells you to reconnect at
 | Tool | What it does | Changes your workspace |
 |---|---|---|
 | `search` | Finds findings, entities, briefs and private documents | No |
-| `fetch` | Returns one item in full | No |
+| `fetch` | Returns one item in full, with its sources | No |
 | `omniagraph_list_monitors` | Lists your monitors and their latest run | No |
 | `omniagraph_get_report` | Reads a monitor's findings, new and changed first | No |
 | `omniagraph_ask` | Answers from your stored findings. Live research uses credits | No |
 | `omniagraph_get_run` | Checks the status of a research run | No |
-| `omniagraph_start_research` | Starts a research run | Yes |
-| `omniagraph_create_monitor` | Creates a scheduled monitor | Yes |
+| `omniagraph_company_intelligence` | Reads your company map, category coverage or one company's cited profile | No |
+| `omniagraph_get_dashboards` | Reads stored dashboard figures with units, dates and sources | No |
+| `omniagraph_get_quarterly_brief` | Reads a quarterly brief with its evidence and data gaps | No |
+| `omniagraph_page_watch_entries` | Reads dated entries from the university and incubator pages you watch | No |
+| `omniagraph_get_enrichment` | Reads a company enrichment job and its cited fields | No |
+| `omniagraph_start_research` | Starts a research run. Uses credits | Yes |
+| `omniagraph_create_monitor` | Creates a scheduled monitor. Its runs use credits | Yes |
 | `omniagraph_add_to_watchlist` | Adds an entity to your watchlist | Yes |
 | `omniagraph_upload_document` | Uploads a private document | Yes |
+| `omniagraph_enrich_companies` | Starts a job that researches fields for up to 250 companies on the web | Yes |
 
-Tools that change your workspace are marked as such, so your assistant asks you first.
-Answering from stored findings is free. Live research and new runs use workspace credits.
+Eleven tools only read. The five that change your workspace are marked as such, so your
+assistant asks you first. Answering from stored findings is free. Live answers and research
+runs use workspace credits. Enrichment researches each company on the web.
+
+You see only the tools your role in OmniaGraph allows. A viewer sees the eleven tools that
+read. A member or owner also sees the five that change the workspace.
 
 ## Privacy
 
