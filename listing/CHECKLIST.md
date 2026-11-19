@@ -4,8 +4,7 @@ Work down each list before you submit to that store. **You** means a person at R
 it: it cannot be done from this repository. **Repo** means this repository already does it and
 `scripts/check.sh` tests it.
 
-Nothing here has been submitted. The server is not live yet, so every item that needs the live
-server is open.
+Nothing here has been submitted yet. The server has been live since November 2026.
 
 ## Before any submission
 
